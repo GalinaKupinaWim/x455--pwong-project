@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrepMate - About AI-powered SAT Preparation Platform</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="slideshow.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">PrepMate</div>
+    </header>
+    <div class="hamburger-menu" onclick="toggleMobileNav()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <nav>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item active">About</a>
+        <a href="onboarding.html" class="nav-item">Onboarding</a>
+        <a href="sat-testing.html" class="nav-item">SAT Testing</a>
+        <a href="progress-chart.html" class="nav-item">Progress chart</a>
+        <a href="schedule.html" class="nav-item">Schedule</a>
+      </div>
+      <div class="search-container">
+        <img src="./images/Search.png" alt="Search" />
+        <input type="text" class="search-input" placeholder="Search for..." />
+      </div>
+    </nav>
+    <div class="mobile-nav">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="onboarding.html" class="mobile-nav-item">Onboarding</a>
+      <a href="sat-testing.html" class="mobile-nav-item">SAT Testing</a>
+      <a href="progress-chart.html" class="mobile-nav-item">Progress chart</a>
+      <a href="schedule.html" class="mobile-nav-item">Schedule</a>
+    </div>
+    <main>
+      <section class="about-section">
+        <div class="container">
+          <div class="about-content">
+            <div class="slideshow-container">
+              <div class="navigation">
+                <button class="nav-btn prev-btn">
+                  <svg
+                    class="nav-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button class="nav-btn next-btn">
+                  <svg
+                    class="nav-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+              <div class="slides">
+                <div class="slide">
+                  <img src="./images/about_image.png" alt="Slide 1" />
+                </div>
+                <div class="slide">
+                  <img src="./images/About-carousel1.png" alt="Slide 2" />
+                </div>
+                <div class="slide">
+                  <img src="./images/About-carousel2.png" alt="Slide 3" />
+                </div>
+              </div>
+            </div>
+            <!-- <div class="about-image">
+              <img
+                src="./images/about_image.png"
+                alt="Students studying with PrepMate"
+              />
+            </div> -->
+            <div class="about-text">
+              Today we are excited to introduce you to our AI-powered SAT
+              preparation platform, PrepMate. This platform is designed to
+              provide personalized learning experience for SAT test. It tailors
+              study plans to your individual learning style, adjusts the
+              difficulty of practice questions in real-time, deliveres
+              customized content, and provides comprehensive analytics to track
+              your progress. All aimed at impoving your engagment and test
+              scores. Our goal is to help you achieve better academic outcomes
+              and enhance your overall SAT test preparation experience.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          <p>2025 PrepMate. All rights reserved worldwide.</p>
+        </div>
+        <div class="social-section">
+          <h3 class="section-title">Socials</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <img src="./images/Facebook.png" alt="Facebook" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Twitter.png" alt="Twitter" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Instagram.png" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Youtube.png" alt="YouTube" />
+            </a>
+          </div>
+        </div>
+        <div class="contact-section">
+          <h3 class="section-title">Contacts</h3>
+          <p>+1 888 808 0808</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMobileNav() {
+        const mobileNav = document.querySelector(".mobile-nav");
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
+
+        mobileNav.classList.toggle("active");
+
+        // Optional: Transform hamburger icon to 'X' when menu is open
+        hamburgerMenu.classList.toggle("active");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelector(".slides");
+        const prevBtn = document.querySelector(".prev-btn");
+        const nextBtn = document.querySelector(".next-btn");
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateSlidePosition() {
+          slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        nextBtn.addEventListener("click", () => {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateSlidePosition();
+        });
+
+        prevBtn.addEventListener("click", () => {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          updateSlidePosition();
+        });
+      });
+    </script>
+  </body>
+</html>

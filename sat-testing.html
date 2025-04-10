@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrepMate - SAT Test Simulation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="sat-testing.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">PrepMate</div>
+    </header>
+    <div class="hamburger-menu" onclick="toggleMobileNav()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <nav>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="onboarding.html" class="nav-item" active>Onboarding</a>
+        <a href="sat-testing.html" class="nav-item active">SAT Testing</a>
+        <a href="progress-chart.html" class="nav-item">Progress chart</a>
+        <a href="schedule.html" class="nav-item">Schedule</a>
+      </div>
+      <div class="search-container">
+        <img src="./images/Search.png" alt="Search" />
+        <input type="text" class="search-input" placeholder="Search for..." />
+      </div>
+    </nav>
+    <div class="mobile-nav">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="onboarding.html" class="mobile-nav-item">Onboarding</a>
+      <a href="sat-testing.html" class="mobile-nav-item active">SAT Testing</a>
+      <a href="progress-chart.html" class="mobile-nav-item">Progress chart</a>
+      <a href="schedule.html" class="mobile-nav-item">Schedule</a>
+    </div>
+    <main>
+      <section class="sat-testing-section">
+        <div class="container">
+          <h1>SAT Test Simulation</h1>
+
+          <div class="test-options">
+            <div class="test-option">
+              <div class="icon-container">
+                <img
+                  src="images/full test.png"
+                  alt="Brain lightbulb icon representing Full SAT Test"
+                />
+              </div>
+              <p>Full SAT Test</p>
+            </div>
+
+            <div class="test-option">
+              <div class="icon-container">
+                <img
+                  src="images/rapid-testing.png"
+                  alt="Stopwatch with arrow icon representing Rapid Assessment"
+                />
+              </div>
+              <p>Rapid Assessment</p>
+            </div>
+
+            <div class="test-option">
+              <div class="icon-container">
+                <img
+                  src="/images/math.png"
+                  alt="Math cube with percentage symbols representing SAT Math"
+                />
+              </div>
+              <p>SAT Math</p>
+            </div>
+
+            <div class="test-option">
+              <div class="icon-container">
+                <img
+                  src="images/writing.png"
+                  alt="Pencil and paper icon representing SAT Writing"
+                />
+              </div>
+              <p>SAT Writing</p>
+            </div>
+
+            <div class="test-option">
+              <div class="icon-container">
+                <img
+                  src="images/books.png"
+                  alt="Document with signature icon representing SAT Reading"
+                />
+              </div>
+              <p>SAT Reading</p>
+            </div>
+
+            <div class="test-option">
+              <div class="icon-container">
+                <img
+                  src="/images/essay.png"
+                  alt="Document with signature icon representing SAT Essay"
+                />
+              </div>
+              <p>SAT Essay</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          <p>2025 PrepMate. All rights reserved worldwide.</p>
+        </div>
+        <div class="social-section">
+          <h3 class="section-title">Socials</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <img src="./images/Facebook.png" alt="Facebook" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Twitter.png" alt="Twitter" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Instagram.png" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Youtube.png" alt="YouTube" />
+            </a>
+          </div>
+        </div>
+        <div class="contact-section">
+          <h3 class="section-title">Contacts</h3>
+          <p>+1 888 808 0808</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    function toggleMobileNav() {
+      const mobileNav = document.querySelector(".mobile-nav");
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+
+      mobileNav.classList.toggle("active");
+
+      // Optional: Transform hamburger icon to 'X' when menu is open
+      hamburgerMenu.classList.toggle("active");
+    }
+  </script>
+</html>

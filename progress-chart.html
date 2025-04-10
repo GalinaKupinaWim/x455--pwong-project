@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrepMate - SAT Score Advancement</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="progress-chart.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">PrepMate</div>
+    </header>
+    <div class="hamburger-menu" onclick="toggleMobileNav()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <nav>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="onboarding.html" class="nav-item">Onboarding</a>
+        <a href="sat-testing.html" class="nav-item">SAT Testing</a>
+        <a href="progress-chart.html" class="nav-item active">Progress chart</a>
+        <a href="schedule.html" class="nav-item">Schedule</a>
+      </div>
+      <div class="search-container">
+        <img src="./images/Search.png" alt="Search" />
+        <input type="text" class="search-input" placeholder="Search for..." />
+      </div>
+    </nav>
+    <div class="mobile-nav">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="onboarding.html" class="mobile-nav-item">Onboarding</a>
+      <a href="sat-testing.html" class="mobile-nav-item">SAT Testing</a>
+      <a href="progress-chart.html" class="mobile-nav-item">Progress chart</a>
+      <a href="schedule.html" class="mobile-nav-item">Schedule</a>
+    </div>
+    <div class="chart-container">
+      <h1>SAT Score Advancement</h1>
+
+      <div class="score-card">
+        <div class="filter-bar">
+          <button class="filter-button">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 2V14"
+                stroke="#555"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M2 8H14"
+                stroke="#555"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            Filter
+          </button>
+        </div>
+
+        <table id="scoreTable">
+          <thead>
+            <tr>
+              <th data-sort="date">Date</th>
+              <th data-sort="type">Type of test</th>
+              <th data-sort="score">Score</th>
+              <th data-sort="progress">Progress</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10.09.23</td>
+              <td>Full Test</td>
+              <td>1090</td>
+              <td>
+                <div class="progress-indicator">
+                  <span class="progress-value">---</span>
+                  <div class="progress-bar progress-neutral"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>11.10.23</td>
+              <td>Math Section</td>
+              <td>550</td>
+              <td>
+                <div class="progress-indicator">
+                  <span class="progress-value">+20</span>
+                  <div class="progress-bar progress-positive"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>01.09.24</td>
+              <td>Writing Section</td>
+              <td>570</td>
+              <td>
+                <div class="progress-indicator">
+                  <span class="progress-value">+10</span>
+                  <div class="progress-bar progress-positive"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>05.11.24</td>
+              <td>Full Test</td>
+              <td>1200</td>
+              <td>
+                <div class="progress-indicator">
+                  <span class="progress-value">+110</span>
+                  <div class="progress-bar progress-positive"></div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          <p>2025 PrepMate. All rights reserved worldwide.</p>
+        </div>
+        <div class="social-section">
+          <h3 class="section-title">Socials</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <img src="./images/Facebook.png" alt="Facebook" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Twitter.png" alt="Twitter" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Instagram.png" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Youtube.png" alt="YouTube" />
+            </a>
+          </div>
+        </div>
+        <div class="contact-section">
+          <h3 class="section-title">Contacts</h3>
+          <p>+1 888 808 0808</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const table = document.getElementById("scoreTable");
+        const headers = table.querySelectorAll("th");
+        const tableBody = table.querySelector("tbody");
+        const rows = tableBody.querySelectorAll("tr");
+        let currentSort = { column: null, direction: "asc" };
+
+        // Add click event to headers for sorting
+        headers.forEach((header) => {
+          header.addEventListener("click", () => {
+            const sortBy = header.getAttribute("data-sort");
+            const isAsc =
+              currentSort.column === sortBy && currentSort.direction === "asc";
+
+            // Reset all headers visual state
+            headers.forEach((h) => {
+              h.classList.remove("sort-asc", "sort-desc");
+            });
+
+            // Set current sort state
+            currentSort = {
+              column: sortBy,
+              direction: isAsc ? "desc" : "asc",
+            };
+
+            // Add visual indicator
+            header.classList.add(isAsc ? "sort-desc" : "sort-asc");
+
+            // Sort the rows
+            sortTable(sortBy, currentSort.direction);
+          });
+        });
+
+        function sortTable(column, direction) {
+          const dirModifier = direction === "asc" ? 1 : -1;
+          const rowsArray = Array.from(rows);
+
+          const sortedRows = rowsArray.sort((a, b) => {
+            let aValue, bValue;
+
+            if (column === "date") {
+              // Parse date values - format is DD.MM.YY
+              const aDate = a.cells[0].textContent.split(".");
+              const bDate = b.cells[0].textContent.split(".");
+              // Convert to YYYY-MM-DD format for proper comparison
+              aValue = new Date(`20${aDate[2]}-${aDate[1]}-${aDate[0]}`);
+              bValue = new Date(`20${bDate[2]}-${bDate[1]}-${bDate[0]}`);
+            } else if (column === "score") {
+              // Parse score as number
+              aValue = parseInt(a.cells[2].textContent);
+              bValue = parseInt(b.cells[2].textContent);
+            } else if (column === "progress") {
+              // Parse progress value - extract number from "+XX" or "---"
+              const aText =
+                a.cells[3].querySelector(".progress-value").textContent;
+              const bText =
+                b.cells[3].querySelector(".progress-value").textContent;
+
+              aValue = aText === "---" ? 0 : parseInt(aText.replace("+", ""));
+              bValue = bText === "---" ? 0 : parseInt(bText.replace("+", ""));
+            } else {
+              // Default string comparison for other columns
+              aValue =
+                a.cells[column === "type" ? 1 : 0].textContent.toLowerCase();
+              bValue =
+                b.cells[column === "type" ? 1 : 0].textContent.toLowerCase();
+            }
+
+            return aValue > bValue ? dirModifier : -dirModifier;
+          });
+
+          // Remove existing rows
+          while (tableBody.firstChild) {
+            tableBody.removeChild(tableBody.firstChild);
+          }
+
+          // Add sorted rows
+          sortedRows.forEach((row) => {
+            tableBody.appendChild(row);
+          });
+        }
+      });
+    </script>
+  </body>
+  <script>
+    function toggleMobileNav() {
+      const mobileNav = document.querySelector(".mobile-nav");
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+
+      mobileNav.classList.toggle("active");
+
+      // Optional: Transform hamburger icon to 'X' when menu is open
+      hamburgerMenu.classList.toggle("active");
+    }
+  </script>
+</html>

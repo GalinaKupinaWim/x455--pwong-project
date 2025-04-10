@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrepMate - Learning Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="schedule.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">PrepMate</div>
+    </header>
+    <div class="hamburger-menu" onclick="toggleMobileNav()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <nav>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="onboarding.html" class="nav-item">Onboarding</a>
+        <a href="sat-testing.html" class="nav-item">SAT Testing</a>
+        <a href="progress-chart.html" class="nav-item">Progress chart</a>
+        <a href="schedule.html" class="nav-item active">Schedule</a>
+      </div>
+      <div class="search-container">
+        <img src="./images/Search.png" alt="Search" />
+        <input type="text" class="search-input" placeholder="Search for..." />
+      </div>
+    </nav>
+    <div class="mobile-nav">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="onboarding.html" class="mobile-nav-item">Onboarding</a>
+      <a href="sat-testing.html" class="mobile-nav-item">SAT Testing</a>
+      <a href="progress-chart.html" class="mobile-nav-item">Progress chart</a>
+      <a href="schedule.html" class="mobile-nav-item">Schedule</a>
+    </div>
+    <div class="container">
+      <div class="header">
+        <div class="user-greeting">
+          <h1>
+            Hi, Tim
+            <p>You are close to reach today's goal!</p>
+          </h1>
+        </div>
+        <div class="daily-tasks-title">Daily Tasks</div>
+      </div>
+
+      <div class="main-content">
+        <div class="sidebar">
+          <!-- Reading -->
+          <div class="subject-card">
+            <div class="subject-header" onclick="toggleSubject(this)">
+              <div class="dropdown-icon down"></div>
+              <div class="subject-title">Reading</div>
+            </div>
+            <div class="subject-progress">
+              <div>2/5 Units left</div>
+            </div>
+            <div class="subject-details">
+              <p>Literature (Fiction)</p>
+              <p>History/ Social Studies</p>
+            </div>
+            <img
+              src="images/reading-icon.png"
+              class="subject-icon"
+              alt="Reading icon"
+            />
+          </div>
+
+          <!-- Writing -->
+          <div class="subject-card">
+            <div class="subject-header" onclick="toggleSubject(this)">
+              <div class="dropdown-icon up"></div>
+              <div class="subject-title">Writing</div>
+            </div>
+            <div class="subject-progress">
+              <div>3/4 Units left</div>
+            </div>
+            <div class="subject-details">
+              <p>Punctuation theory</p>
+              <p>Grammar theory</p>
+              <p>Practice exercises</p>
+            </div>
+            <img
+              src="images/writing-icon.png"
+              class="subject-icon"
+              alt="Writing icon"
+            />
+          </div>
+
+          <!-- Math -->
+          <div class="subject-card">
+            <div class="subject-header" onclick="toggleSubject(this)">
+              <div class="dropdown-icon down"></div>
+              <div class="subject-title">Math</div>
+            </div>
+            <div class="subject-progress">
+              <div>3/10 Units left</div>
+            </div>
+            <div class="subject-details">
+              <p>Algebra</p>
+              <p>Geometry</p>
+              <p>Statistics</p>
+            </div>
+            <img
+              src="images/math-icon.png"
+              class="subject-icon"
+              alt="Math icon"
+            />
+          </div>
+        </div>
+
+        <div class="content-area">
+          <!-- Progress Donut Chart - Now displayed first -->
+          <div class="progress-section">
+            <div class="donut-chart">
+              <div class="donut-fill"></div>
+              <div class="donut-hole"></div>
+            </div>
+            <div class="progress-legend">
+              <div class="legend-item">
+                <div class="legend-color legend-complete"></div>
+                <span class="legend-text">Completed</span>
+                <span>35%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color legend-progress"></div>
+                <span class="legend-text">In progress</span>
+                <span>65%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Section - Now displayed after progress chart -->
+          <div class="video-section">
+            <div class="video-container">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/dcGgwZpNZtA?si=l_UCS8G8wdHoBfkI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="video-container">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/lx-QENIgkyw?si=4D0JY2bkq9nJcZjL"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="video-container">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/VdVPg04t_6w?si=w7lMEt9Sokqm7Pv_"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          <p>2025 PrepMate. All rights reserved worldwide.</p>
+        </div>
+        <div class="social-section">
+          <h3 class="section-title">Socials</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <img src="./images/Facebook.png" alt="Facebook" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Twitter.png" alt="Twitter" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Instagram.png" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./images/Youtube.png" alt="YouTube" />
+            </a>
+          </div>
+        </div>
+        <div class="contact-section">
+          <h3 class="section-title">Contacts</h3>
+          <p>+1 888 808 0808</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Writing section as open by default (matches the up arrow)
+        const writingSubjectCards = document.querySelectorAll(".subject-card");
+        writingSubjectCards.forEach((card) => {
+          const titleElement = card.querySelector(".subject-title");
+          if (titleElement && titleElement.textContent === "Writing") {
+            const dropdownIcon = card.querySelector(".dropdown-icon");
+            if (dropdownIcon) {
+              dropdownIcon.classList.add("active");
+            }
+          }
+        });
+      });
+
+      // Function to toggle subject accordions
+      function toggleSubject(header) {
+        const dropdownIcon = header.querySelector(".dropdown-icon");
+        dropdownIcon.classList.toggle("active");
+
+        const subjectDetails =
+          header.parentElement.querySelector(".subject-details");
+        subjectDetails.classList.toggle("active");
+      }
+    </script>
+  </body>
+  <script>
+    function toggleMobileNav() {
+      const mobileNav = document.querySelector(".mobile-nav");
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+
+      mobileNav.classList.toggle("active");
+
+      // Optional: Transform hamburger icon to 'X' when menu is open
+      hamburgerMenu.classList.toggle("active");
+    }
+  </script>
+</html>
