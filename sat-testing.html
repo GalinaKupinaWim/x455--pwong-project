@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="sat-testing.css" />
+    <link rel="stylesheet" href="lightbox.css" />
   </head>
   <body>
     <header>
@@ -45,10 +46,10 @@
     <main>
       <section class="sat-testing-section">
         <div class="container">
-          <h1>SAT Test Simulation</h1>
+          <h1 class="container-title">SAT Test Simulation</h1>
 
           <div class="test-options">
-            <div class="test-option">
+            <div class="test-option" onclick="openLightbox('full-sat')">
               <div class="icon-container">
                 <img
                   src="images/full test.png"
@@ -58,7 +59,7 @@
               <p>Full SAT Test</p>
             </div>
 
-            <div class="test-option">
+            <div class="test-option" onclick="openLightbox('rapid-assessment')">
               <div class="icon-container">
                 <img
                   src="images/rapid-testing.png"
@@ -68,7 +69,7 @@
               <p>Rapid Assessment</p>
             </div>
 
-            <div class="test-option">
+            <div class="test-option" onclick="openLightbox('sat-math')">
               <div class="icon-container">
                 <img
                   src="images/math.png"
@@ -78,7 +79,7 @@
               <p>SAT Math</p>
             </div>
 
-            <div class="test-option">
+            <div class="test-option" onclick="openLightbox('sat-writing')">
               <div class="icon-container">
                 <img
                   src="images/writing.png"
@@ -88,7 +89,7 @@
               <p>SAT Writing</p>
             </div>
 
-            <div class="test-option">
+            <div class="test-option" onclick="openLightbox('sat-reading')">
               <div class="icon-container">
                 <img
                   src="images/books.png"
@@ -98,7 +99,7 @@
               <p>SAT Reading</p>
             </div>
 
-            <div class="test-option">
+            <div class="test-option" onclick="openLightbox('sat-essay')">
               <div class="icon-container">
                 <img
                   src="images/essay.png"
@@ -139,16 +140,179 @@
         </div>
       </div>
     </footer>
+
+    <!-- Hidden test content containers -->
+    <div id="full-sat" class="test-content">
+      <h2>Full SAT Test</h2>
+      <p>
+        Complete SAT practice test that simulates the official exam experience.
+      </p>
+      <div class="details">
+        <ul>
+          <li>98 questions total</li>
+          <li>134 minutes to complete</li>
+          <li>Includes all sections: Reading, Writing, and Math</li>
+          <li>Most questions are multiple-choice format</li>
+          <li>Scoring aligned with official SAT scale (400-1600)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="rapid-assessment" class="test-content">
+      <h2>Rapid Assessment</h2>
+      <p>
+        Quick diagnostic test to identify your strengths and areas for
+        improvement.
+      </p>
+      <div class="details">
+        <ul>
+          <li>30 questions selected from all sections</li>
+          <li>45 minutes to complete</li>
+          <li>Provides immediate analysis of performance by topic</li>
+          <li>Great for tracking progress between full practice tests</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="sat-math" class="test-content">
+      <h2>SAT Math</h2>
+      <p>Focus exclusively on the mathematics portion of the SAT.</p>
+      <div class="details">
+        <ul>
+          <li>44 questions total</li>
+          <li>70 minutes to complete</li>
+          <li>
+            Covers algebra, problem-solving, data analysis, and advanced math
+          </li>
+          <li>Includes both calculator and no-calculator sections</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="sat-writing" class="test-content">
+      <h2>SAT Writing</h2>
+      <p>Practice the writing and language section of the SAT.</p>
+      <div class="details">
+        <ul>
+          <li>25 questions total</li>
+          <li>35 minutes to complete</li>
+          <li>Tests grammar, punctuation, and rhetorical skills</li>
+          <li>
+            Passage-based questions focusing on editing and improving text
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="sat-reading" class="test-content">
+      <h2>SAT Reading</h2>
+      <p>Focus on improving your reading comprehension skills for the SAT.</p>
+      <div class="details">
+        <ul>
+          <li>30 questions total</li>
+          <li>40 minutes to complete</li>
+          <li>
+            Includes various passage types: literature, historical documents,
+            science, and social studies
+          </li>
+          <li>Tests comprehension, analysis, and evidence-based reasoning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="sat-essay" class="test-content">
+      <h2>SAT Essay</h2>
+      <p>
+        Practice writing a structured analytical essay based on a provided
+        passage.
+      </p>
+      <div class="details">
+        <ul>
+          <li>50 minutes to complete</li>
+          <li>
+            Analyze an author's argument and explain how they build their case
+          </li>
+          <li>Scored on reading, analysis, and writing skills</li>
+          <li>Optional but recommended for college applications</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lightbox Overlay -->
+    <div class="lightbox-overlay" id="lightbox-overlay">
+      <div class="lightbox-content">
+        <button class="close-lightbox" onclick="closeLightbox()">
+          &times;
+        </button>
+        <h2 class="lightbox-title" id="lightbox-title"></h2>
+        <div class="lightbox-description" id="lightbox-description"></div>
+        <div class="lightbox-details">
+          <h3>Test Details:</h3>
+          <ul id="lightbox-details-list"></ul>
+        </div>
+        <button class="start-test-btn">Start Test</button>
+      </div>
+    </div>
   </body>
+
   <script>
+    // Toggle mobile navigation
     function toggleMobileNav() {
       const mobileNav = document.querySelector(".mobile-nav");
       const hamburgerMenu = document.querySelector(".hamburger-menu");
 
       mobileNav.classList.toggle("active");
-
-      // Optional: Transform hamburger icon to 'X' when menu is open
       hamburgerMenu.classList.toggle("active");
     }
+
+    // Open lightbox with specific test data
+    function openLightbox(testId) {
+      // Get the hidden content div
+      const contentDiv = document.getElementById(testId);
+      if (!contentDiv) return;
+
+      // Get elements from the hidden div
+      const title = contentDiv.querySelector("h2").innerText;
+      const description = contentDiv.querySelector("p").innerText;
+      const listItems = contentDiv.querySelectorAll("li");
+
+      // Update lightbox content
+      document.getElementById("lightbox-title").textContent = title;
+      document.getElementById("lightbox-description").textContent = description;
+
+      // Update details list
+      const detailsList = document.getElementById("lightbox-details-list");
+      detailsList.innerHTML = "";
+      listItems.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item.textContent;
+        detailsList.appendChild(li);
+      });
+
+      // Show the lightbox
+      document.getElementById("lightbox-overlay").style.display = "flex";
+
+      // Blur the main content
+      document.getElementById("main-content").classList.add("blur-content");
+
+      // Prevent body scrolling
+      document.body.classList.add("lightbox-open");
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+      document.getElementById("lightbox-overlay").style.display = "none";
+      document.getElementById("main-content").classList.remove("blur-content");
+      document.body.classList.remove("lightbox-open");
+    }
+
+    // Close lightbox when clicking outside the content
+    document
+      .getElementById("lightbox-overlay")
+      .addEventListener("click", function (e) {
+        if (e.target === this) {
+          closeLightbox();
+        }
+      });
   </script>
 </html>
